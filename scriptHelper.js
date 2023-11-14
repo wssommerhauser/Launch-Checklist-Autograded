@@ -62,7 +62,7 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
 
  
  function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
-    fuelLevel = fuelLevel;
+    //fuelLevel = fuelLevel;
     const head = document.getElementById("launchStatus");
     
     document.getElementById("pilotStatus").innerHTML =`Pilot ${pilot} is ready for launch`;
@@ -95,13 +95,15 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
  async function myFetch() {
      let planetsReturned;
  
-     planetsReturned = await fetch().then( function(response) {
+     planetsReturned = await fetch("https://handlers.education.launchcode.org/static/planets.json").then( function(response) {
+        return response.json();
          });
  
      return planetsReturned;
  }
  
  function pickPlanet(planets) {
+    return planets[Math.floor(Math.random(planets.length))]; 
  }
  
  module.exports.addDestinationInfo = addDestinationInfo;
