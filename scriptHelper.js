@@ -3,49 +3,20 @@
 require('cross-fetch/polyfill');
 
 function addDestinationInfo(document, name, diameter, star, distance, moons, imageUrl) {
-    // this.fetch("https://handlers.education.launchcode.org/static/planets.json").then(function(response){
-    //     response.json().then(function(json){
-    //         for(i = 0; i < json.length; i++){
+
                 const list = document.getElementById("missionTarget");
 
                 list.innerHTML = `
                 <h2>Mission Destination</h2>
-                <ol>
+                <ul>
                     <li>Name: ${name}</li>
                     <li>Diameter: ${diameter}</li>
                     <li>Star: ${star}</li>
                     <li>Distance from Earth: ${distance}</li>
                     <li>Number of Moons: ${moons}</li>
-                </ol>
+                </ul>
                 <img src="${imageUrl}">
                 `;
-
-                /*list.innerHTML = `
-                <h2>Mission Destination</h2>
-                <ol>
-                    <li>Name: ${json[i].name}</li>
-                    <li>Diameter: ${json[i].diameter}</li>
-                    <li>Star: ${json[i].star}</li>
-                    <li>Distance from Earth: ${json[i].distance}</li>
-                    <li>Number of Moons: ${json[i].moons}</li>
-                </ol>
-                <img src="${json[i].imageUrl}">
-                `;*/
-    //         }
-    //     });
-    // });
-    // Here is the HTML formatting for our mission target div.
-    /*
-                 <h2>Mission Destination</h2>
-                 <ol>
-                     <li>Name: </li>
-                     <li>Diameter: </li>
-                     <li>Star: ${star}</li>
-                     <li>Distance from Earth: </li>
-                     <li>Number of Moons: </li>
-                 </ol>
-                 <img src="">
-    */
  }
  
  function validateInput(testInput) {
@@ -103,7 +74,7 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
  }
  
  function pickPlanet(planets) {
-    return planets[Math.floor(Math.random(planets.length))]; 
+    return planets[Math.floor(Math.random()*planets.length)]; 
  }
  
  module.exports.addDestinationInfo = addDestinationInfo;
